@@ -1,10 +1,10 @@
 package controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.jws.WebParam;
+import services.EmployeeService;
 
 
 /**
@@ -14,6 +14,10 @@ import javax.jws.WebParam;
 @Controller
 public class MainController {
 
+    @Autowired
+    EmployeeService employeeService;
+
+
     public void onCreate() {
         System.out.println("AMA WORKING");
     }
@@ -22,6 +26,7 @@ public class MainController {
     public Model sayHelloBitch(Model model) {
         model.addAttribute("greeting", "Hello Bitch");
         System.out.println("REQUEST IS HANDLED");
+        employeeService.createNewEmployee();
         return model;
     }
 }
