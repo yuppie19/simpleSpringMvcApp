@@ -27,6 +27,16 @@
         <servlet-name>fuckerServlet</servlet-name>
         <url-pattern>/fuck</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>anotherServlet</servlet-name>
+        <servlet-class>servlets.AnotherServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>anotherServlet</servlet-name>
+        <url-pattern>/fuck2</url-pattern>
+    </servlet-mapping>
 
     <!--<listener>-->
         <!--<listener-class>-->
