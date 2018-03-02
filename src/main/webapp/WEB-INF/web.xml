@@ -38,11 +38,21 @@
         <url-pattern>/fuck2</url-pattern>
     </servlet-mapping>
 
-    <!--<listener>-->
-        <!--<listener-class>-->
-            <!--org.springframework.web.context.ContextLoaderListener-->
-        <!--</listener-class>-->
-    <!--</listener>-->
+    <listener>
+        <listener-class>listeners.ContextListener</listener-class>
+    </listener>
+    
+    <listener>
+        <listener-class>listeners.ContextAttributeListener</listener-class>
+    </listener>
+    
+    <listener>
+        <listener-class>listeners.SessionListener</listener-class>
+    </listener>
+    
+    <listener>
+        <listener-class>listeners.RequestListener</listener-class>
+    </listener>
 
 
     <display-name>My spring mvc from scratch</display-name>

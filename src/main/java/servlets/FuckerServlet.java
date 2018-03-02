@@ -14,17 +14,7 @@ import java.io.PrintWriter;
 public class FuckerServlet extends HttpServlet{
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        PrintWriter writer = resp.getWriter();
-        HttpSession session = req.getSession();
-        if(session.isNew()) {
-            session.setAttribute("msg", "YOU ARE OFFICIALLY FUCKED");
-            session.setAttribute("name", "new fucking name");
-            writer.append("YOU ARE OFFICIALLY FUCKED!");
-        } else {
-            String name = (String) session.getAttribute("name");
-            System.out.println("NAME " + name);
-            writer.append("YOU ALREADY HAVE BEEN FUCKED! " + name);
-        }
+        super.getServletContext().setAttribute("ADMIN", "RUS");
+        resp.getWriter().append("FUCK YEAHH");
     }
 }

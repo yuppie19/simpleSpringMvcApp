@@ -22,6 +22,8 @@ public class AnotherServlet extends HttpServlet {
             resp.getWriter().append("HELLO " + user.toString());
         }
 
+        super.getServletContext().setAttribute("ADMIN", "FUCKER");
+
 //        Cookie c = new Cookie("name", "new user");
 //        c.setMaxAge(30*60);
 //        resp.addCookie(c);
