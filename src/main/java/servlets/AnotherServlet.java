@@ -10,22 +10,33 @@ import java.io.PrintWriter;
  */
 public class AnotherServlet extends HttpServlet {
 
+    private static final String salt = "yeahhBitch122";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Object user = req.getSession().getAttribute("user");
+        System.out.println("SESSION FOUND " + user);
+        resp.getWriter().append("HELLO " + user.toString());
+    }
+
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+
         HttpSession session = req.getSession();
-        if(session.isNew()) {
-            session.setAttribute("user", "fucked");
-            System.out.println("SESSION CREATED");
+        session.setAttribute("user", username);
+        session.setAttribute("password", password + salt);
+
+
+        if(username == "admin" && password == "qwerty") {
+            session.setAttribute("role", "admin");
+            super.getServletContext().setAttribute("admin", username);
+            super.getServletContext().setAttribute("password", password);
         } else {
-            Object user = session.getAttribute("user");
-            System.out.println("SESSION FOUND " + user);
-            resp.getWriter().append("HELLO " + user.toString());
+
         }
 
-        super.getServletContext().setAttribute("ADMIN", "FUCKER");
-
-//        Cookie c = new Cookie("name", "new user");
-//        c.setMaxAge(30*60);
-//        resp.addCookie(c);
     }
 }
