@@ -16,6 +16,6 @@
     <context:component-scan base-package="dao"/>
     <mvc:annotation-driven/>
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/jsp/hello" p:suffix=".jsp" p:viewClass="org.springframework.web.servlet.view.JstlView"></bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" p:viewClass="org.springframework.web.servlet.view.JstlView"></bean>
 
 </beans>

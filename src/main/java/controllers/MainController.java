@@ -22,7 +22,7 @@ public class MainController {
         System.out.println("AMA WORKING");
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     public Model sayHelloBitch(Model model) {
         model.addAttribute("greeting", "Hello Bitch");
         System.out.println("REQUEST IS HANDLED");
